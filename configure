@@ -1,0 +1,4 @@
+--enable-valgrind
+--enable-code-coverage
+--enable-cppcheck
+--disable-valgrind-memcheck
