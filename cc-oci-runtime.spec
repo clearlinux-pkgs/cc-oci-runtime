@@ -4,7 +4,7 @@
 #
 Name     : cc-oci-runtime
 Version  : d19fafabfe9ea756fb639d3b62f73e5e23236561
-Release  : 2
+Release  : 3
 URL      : https://github.com/01org/cc-oci-runtime/archive/d19fafabfe9ea756fb639d3b62f73e5e23236561.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/d19fafabfe9ea756fb639d3b62f73e5e23236561.tar.gz
 Summary  : No detailed summary available
@@ -55,7 +55,9 @@ export LANG=C
 %autogen --disable-static --enable-valgrind \
 --enable-code-coverage \
 --enable-cppcheck \
---disable-valgrind-memcheck
+--disable-valgrind-memcheck \
+--with-cc-kernel=/usr/share/clear-containers/vmlinux.container \
+--with-cc-image=/usr/share/clear-containers/clear-containers.img
 make V=1  %{?_smp_mflags}
 
 %check

@@ -2,3 +2,5 @@
 --enable-code-coverage
 --enable-cppcheck
 --disable-valgrind-memcheck
+--with-cc-kernel=/usr/share/clear-containers/vmlinux.container
+--with-cc-image=/usr/share/clear-containers/clear-containers.img
