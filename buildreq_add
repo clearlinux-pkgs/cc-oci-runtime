@@ -1,6 +1,9 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
 bats
+linux-container
+clear-containers-image
+qemu-lite
 valgrind
 cppcheck
 lcov

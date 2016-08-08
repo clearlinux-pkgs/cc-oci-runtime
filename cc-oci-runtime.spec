@@ -4,7 +4,7 @@
 #
 Name     : cc-oci-runtime
 Version  : d19fafabfe9ea756fb639d3b62f73e5e23236561
-Release  : 3
+Release  : 4
 URL      : https://github.com/01org/cc-oci-runtime/archive/d19fafabfe9ea756fb639d3b62f73e5e23236561.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/d19fafabfe9ea756fb639d3b62f73e5e23236561.tar.gz
 Summary  : No detailed summary available
@@ -13,13 +13,16 @@ License  : GPL-2.0
 Requires: cc-oci-runtime-bin
 Requires: cc-oci-runtime-data
 BuildRequires : bats
+BuildRequires : clear-containers-image
 BuildRequires : cppcheck
 BuildRequires : lcov
+BuildRequires : linux-container
 BuildRequires : pkgconfig(check)
 BuildRequires : pkgconfig(gio-unix-2.0)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(uuid)
+BuildRequires : qemu-lite
 BuildRequires : valgrind
 
 %description
