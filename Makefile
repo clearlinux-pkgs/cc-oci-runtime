@@ -1,5 +1,5 @@
 PKG_NAME := cc-oci-runtime
-URL := https://github.com/01org/cc-oci-runtime/archive/1eeb9683ab3a570baeed70f20d18b977fc514e1f.tar.gz
+URL := https://github.com/01org/cc-oci-runtime/archive/9afc3b4775428fcacac16905dbfe4d258427b9b1.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common
