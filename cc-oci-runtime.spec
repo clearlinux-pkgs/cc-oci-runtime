@@ -4,13 +4,14 @@
 #
 Name     : cc-oci-runtime
 Version  : 9afc3b4775428fcacac16905dbfe4d258427b9b1
-Release  : 8
+Release  : 9
 URL      : https://github.com/01org/cc-oci-runtime/archive/9afc3b4775428fcacac16905dbfe4d258427b9b1.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/9afc3b4775428fcacac16905dbfe4d258427b9b1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: cc-oci-runtime-bin
+Requires: cc-oci-runtime-config
 Requires: cc-oci-runtime-data
 BuildRequires : bats
 BuildRequires : clear-containers-image
@@ -34,9 +35,18 @@ BuildRequires : valgrind
 Summary: bin components for the cc-oci-runtime package.
 Group: Binaries
 Requires: cc-oci-runtime-data
+Requires: cc-oci-runtime-config
 
 %description bin
 bin components for the cc-oci-runtime package.
+
+
+%package config
+Summary: config components for the cc-oci-runtime package.
+Group: Default
+
+%description config
+config components for the cc-oci-runtime package.
 
 
 %package data
@@ -45,6 +55,14 @@ Group: Data
 
 %description data
 data components for the cc-oci-runtime package.
+
+
+%package extras
+Summary: extras components for the cc-oci-runtime package.
+Group: Default
+
+%description extras
+extras components for the cc-oci-runtime package.
 
 
 %prep
@@ -57,7 +75,8 @@ export LANG=C
 --enable-cppcheck \
 --disable-valgrind-memcheck \
 --with-cc-kernel=/usr/share/clear-containers/vmlinux.container \
---with-cc-image=/usr/share/clear-containers/clear-containers.img
+--with-cc-image=/usr/share/clear-containers/clear-containers.img \
+--with-cc-image-systemdsystemunitdir=/usr/lib/systemd/system
 make V=1  %{?_smp_mflags}
 
 %check
@@ -79,8 +98,24 @@ rm -rf %{buildroot}
 /usr/bin/cc-oci-runtime
 /usr/bin/cc-oci-runtime.sh
 
+%files config
+%defattr(-,root,root,-)
+%exclude /usr/lib/systemd/system/container-workload.service
+%exclude /usr/lib/systemd/system/container.target
+%exclude /usr/lib/systemd/system/opt-rootfs-proc.mount
+%exclude /usr/lib/systemd/system/opt-rootfs-sys.mount
+%exclude /usr/lib/systemd/system/opt-rootfs.mount
+
 %files data
 %defattr(-,root,root,-)
 /usr/share/defaults/cc-oci-runtime/hypervisor.args
 /usr/share/defaults/cc-oci-runtime/kernel-cmdline
 /usr/share/defaults/cc-oci-runtime/vm.json
+
+%files extras
+%defattr(-,root,root,-)
+/usr/lib/systemd/system/container-workload.service
+/usr/lib/systemd/system/container.target
+/usr/lib/systemd/system/opt-rootfs-proc.mount
+/usr/lib/systemd/system/opt-rootfs-sys.mount
+/usr/lib/systemd/system/opt-rootfs.mount

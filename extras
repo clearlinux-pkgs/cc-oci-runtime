@@ -1,0 +1,5 @@
+/usr/lib/systemd/system/container-workload.service
+/usr/lib/systemd/system/opt-rootfs.mount
+/usr/lib/systemd/system/opt-rootfs-sys.mount
+/usr/lib/systemd/system/container.target
+/usr/lib/systemd/system/opt-rootfs-proc.mount
