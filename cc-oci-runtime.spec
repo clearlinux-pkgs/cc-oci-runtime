@@ -4,7 +4,7 @@
 #
 Name     : cc-oci-runtime
 Version  : 8c8b25e15101a04ed758ba486fc8be8076e40d7f
-Release  : 11
+Release  : 12
 URL      : https://github.com/01org/cc-oci-runtime/archive/8c8b25e15101a04ed758ba486fc8be8076e40d7f.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/8c8b25e15101a04ed758ba486fc8be8076e40d7f.tar.gz
 Summary  : No detailed summary available
@@ -114,13 +114,13 @@ rm -rf %{buildroot}
 
 %files config
 %defattr(-,root,root,-)
+%exclude /usr/lib/systemd/system/cc-agent.service
+%exclude /usr/lib/systemd/system/cc-agent.target
 %exclude /usr/lib/systemd/system/container-workload.service
 %exclude /usr/lib/systemd/system/container.target
 %exclude /usr/lib/systemd/system/opt-rootfs-proc.mount
 %exclude /usr/lib/systemd/system/opt-rootfs-sys.mount
 %exclude /usr/lib/systemd/system/opt-rootfs.mount
-/usr/lib/systemd/system/cc-agent.service
-/usr/lib/systemd/system/cc-agent.target
 /usr/lib/systemd/system/cc-proxy.service
 /usr/lib/systemd/system/cc-proxy.socket
 
@@ -132,6 +132,8 @@ rm -rf %{buildroot}
 
 %files extras
 %defattr(-,root,root,-)
+/usr/lib/systemd/system/cc-agent.service
+/usr/lib/systemd/system/cc-agent.target
 /usr/lib/systemd/system/container-workload.service
 /usr/lib/systemd/system/container.target
 /usr/lib/systemd/system/opt-rootfs-proc.mount
