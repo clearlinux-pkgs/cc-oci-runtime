@@ -1,3 +1,4 @@
+--disable-docker-tests
 --enable-valgrind
 --enable-code-coverage
 --enable-cppcheck
