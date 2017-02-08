@@ -6,3 +6,4 @@
 --with-cc-kernel=/usr/share/clear-containers/vmlinux.container
 --with-cc-image=/usr/share/clear-containers/clear-containers.img
 --with-cc-image-systemdsystemunitdir=/usr/lib/systemd/system
+--enable-autogopath
