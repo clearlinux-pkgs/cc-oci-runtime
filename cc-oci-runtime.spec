@@ -4,9 +4,9 @@
 #
 Name     : cc-oci-runtime
 Version  : 2.1.0
-Release  : 14
-URL      : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.5.tar.gz
-Source0  : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.5.tar.gz
+Release  : 15
+URL      : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.6.tar.gz
+Source0  : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.6.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 GPL-2.0
@@ -87,12 +87,12 @@ extras components for the cc-oci-runtime package.
 
 
 %prep
-%setup -q -n cc-oci-runtime-2.1.0-rc.5
+%setup -q -n cc-oci-runtime-2.1.0-rc.6
 %patch1 -p1
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1486533077
+export SOURCE_DATE_EPOCH=1486580716
 %autogen --disable-static --disable-docker-tests \
 --enable-valgrind \
 --enable-code-coverage \
@@ -112,7 +112,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 check
 
 %install
-export SOURCE_DATE_EPOCH=1486533077
+export SOURCE_DATE_EPOCH=1486580716
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
