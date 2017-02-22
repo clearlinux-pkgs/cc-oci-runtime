@@ -4,7 +4,7 @@
 #
 Name     : cc-oci-runtime
 Version  : 2.1.0
-Release  : 15
+Release  : 16
 URL      : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.6.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/2.1.0-rc.6.tar.gz
 Summary  : No detailed summary available
@@ -92,7 +92,7 @@ extras components for the cc-oci-runtime package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1486580716
+export SOURCE_DATE_EPOCH=1487792390
 %autogen --disable-static --disable-docker-tests \
 --enable-valgrind \
 --enable-code-coverage \
@@ -112,14 +112,12 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 check
 
 %install
-export SOURCE_DATE_EPOCH=1486580716
+export SOURCE_DATE_EPOCH=1487792390
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content
 mkdir -p %{buildroot}/usr/lib/systemd/system/sockets.target.wants
-mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/cc-proxy.socket
 ln -s ../cc-proxy.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/cc-proxy.socket
-ln -s ../cc-proxy.socket %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/cc-proxy.socket
 ## make_install_append end
 
 %files
@@ -148,7 +146,6 @@ ln -s ../cc-proxy.socket %{buildroot}/usr/lib/systemd/system/update-triggers.tar
 %exclude /usr/lib/systemd/system/sockets.target.wants/cc-proxy.socket
 /usr/lib/systemd/system/cc-proxy.service
 /usr/lib/systemd/system/cc-proxy.socket
-/usr/lib/systemd/system/update-triggers.target.wants/cc-proxy.socket/cc-proxy.socket
 
 %files data
 %defattr(-,root,root,-)

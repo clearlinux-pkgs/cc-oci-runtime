@@ -1,5 +1,3 @@
 mkdir -p %{buildroot}/usr/lib/systemd/system/sockets.target.wants
-mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/cc-proxy.socket
 
 ln -s ../cc-proxy.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/cc-proxy.socket
-ln -s ../cc-proxy.socket %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/cc-proxy.socket
