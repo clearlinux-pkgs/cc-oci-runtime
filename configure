@@ -7,3 +7,5 @@
 --with-cc-image=/usr/share/clear-containers/clear-containers.img
 --with-cc-image-systemdsystemunitdir=/usr/lib/systemd/system
 --enable-autogopath
+--disable-functional-tests
+--disable-crio-tests
