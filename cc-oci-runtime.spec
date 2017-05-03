@@ -4,7 +4,7 @@
 #
 Name     : cc-oci-runtime
 Version  : 2.1.6
-Release  : 20
+Release  : 21
 URL      : https://github.com/01org/cc-oci-runtime/archive/2.1.6.tar.gz
 Source0  : https://github.com/01org/cc-oci-runtime/archive/2.1.6.tar.gz
 Summary  : No detailed summary available
@@ -86,12 +86,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1493840533
+export SOURCE_DATE_EPOCH=1493843512
 %autogen --disable-static --disable-docker-tests \
---disable-valgrind \
+--enable-valgrind \
 --enable-code-coverage \
 --enable-cppcheck \
 --disable-valgrind-memcheck \
+--disable-valgrind-drd \
 --with-cc-kernel=/usr/share/clear-containers/vmlinux.container \
 --with-cc-image=/usr/share/clear-containers/clear-containers.img \
 --with-cc-image-systemdsystemunitdir=/usr/lib/systemd/system \
@@ -108,7 +109,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 check
 
 %install
-export SOURCE_DATE_EPOCH=1493840533
+export SOURCE_DATE_EPOCH=1493843512
 rm -rf %{buildroot}
 %make_install
 ## make_install_append content

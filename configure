@@ -1,8 +1,9 @@
 --disable-docker-tests
---disable-valgrind
+--enable-valgrind
 --enable-code-coverage
 --enable-cppcheck
 --disable-valgrind-memcheck
+--disable-valgrind-drd
 --with-cc-kernel=/usr/share/clear-containers/vmlinux.container
 --with-cc-image=/usr/share/clear-containers/clear-containers.img
 --with-cc-image-systemdsystemunitdir=/usr/lib/systemd/system
