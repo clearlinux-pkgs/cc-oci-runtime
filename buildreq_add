@@ -7,3 +7,4 @@ qemu-lite
 valgrind
 cppcheck
 lcov
+autoconf-archive-dev
