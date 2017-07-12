@@ -1,5 +1,5 @@
 --disable-docker-tests
---enable-valgrind
+--disable-valgrind
 --enable-code-coverage
 --enable-cppcheck
 --disable-valgrind-memcheck
